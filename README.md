@@ -1,146 +1,144 @@
-# Solution-Focused Therapy Chatbot
+# HabitCoach - Personalized Habit Change Assistant
 
-A therapeutic chatbot application built with Flask and the OpenAI API, implementing Solution-Focused Therapy (SFT) techniques.
+A behaviorally intelligent chatbot that adapts its therapeutic approach based on your stage of change, powered by OpenAI's GPT models.
 
-## Features
+## Key Features
 
-- Solution-Focused Therapy (SFT) approach
-- Solution database to store and retrieve user solutions
-- Clean, modern user interface
-- Real-time chat interaction
-- Powered by OpenAI's GPT models
-- Typing indicators for better user experience
+- **Stage-Aware Coaching**: Automatically detects your current stage of behavior change (Precontemplation, Contemplation, Preparation, Action, Maintenance) and tailors its approach accordingly
+- **Multi-Framework Integration**: Combines proven therapeutic approaches including:
+  - **Motivational Interviewing (MI)** for early stages of change
+  - **Solution-Focused Therapy (SFT)** for exploring possibilities
+  - **Cognitive Behavioral Therapy (CBT)** for structured planning
+  - **Acceptance and Commitment Therapy (ACT)** for maintaining changes
+- **Personalized User Database**: Tracks your progress, motivations, plans, and successful solutions over time
+- **Natural Conversation**: Provides empathetic, conversational support without excessive questioning
+- **Context-Aware Prompting**: References your past insights and successes at appropriate moments
 
-## Solution-Focused Therapy Features
+## Behavioral Change Framework
 
-- **Miracle Questions**: Helps users imagine a future where their problem is solved
-- **Exception Finding**: Identifies times when the problem doesn't occur or is less severe
-- **Scaling Questions**: Measures progress and confidence on a scale
-- **Solution Database**: Stores user solutions for future reference
-- **Coping Questions**: Explores how users have managed to cope with difficulties
+HabitCoach implements the Transtheoretical Model (Stages of Change) to provide the right support at the right time:
+
+| Stage | Description | Primary Approach | Typical Support |
+|-------|-------------|------------------|----------------|
+| **Precontemplation** | Not yet ready to change | Motivational Interviewing | Raising awareness without pushing |
+| **Contemplation** | Considering change, feeling ambivalent | MI + Solution-Focused | Exploring ambivalence, building vision |
+| **Preparation** | Planning specific actions | Cognitive Behavioral | Concrete planning, environment design |
+| **Action** | Actively changing behavior | CBT + ACT | Troubleshooting barriers, reinforcing progress |
+| **Maintenance** | Sustaining changes long-term | ACT | Preventing relapse, deepening habit integration |
 
 ## Setup Instructions
 
 ### Prerequisites
 
 - Python 3.7 or higher
-- An OpenAI API key
+- OpenAI API key
 
 ### Installation
 
-1. Clone this repository or download the files
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/habitcoach.git
+   cd habitcoach
+   ```
 
-2. Install the required dependencies:
+2. Create and activate a virtual environment (recommended):
+   ```
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-3. Set up your OpenAI API key:
-   - Open the `.env` file
-   - Replace `your_api_key_here` with your actual OpenAI API key
+4. Set up your OpenAI API key:
+   - Create a `.env` file in the project root
+   - Add your API key: `OPENAI_API_KEY=your_api_key_here`
 
 ### Running the Application
 
-1. Start the Flask server:
-   ```
-   python app.py
-   ```
+Start the Flask server with either:
 
-2. Open your web browser and navigate to:
-   ```
-   http://localhost:5002
-   ```
+```
+python app.py     # Standard version
+```
 
-## Usage
+or
 
-1. Type your message in the input field at the bottom of the chat window
-2. Press Enter or click the Send button to send your message
-3. Wait for the chatbot to respond
-4. Type `/solutions` to view your stored solutions
+```
+python app_test.py  # Testing version
+```
 
-### Solution Database
+Open your browser and navigate to:
+```
+http://localhost:5002
+```
 
-The chatbot automatically extracts and stores solutions that you share during conversations. Solutions include:
+## Usage Guide
 
-- **Habit**: The habit or issue being addressed
-- **Description**: What worked or helped
-- **Effectiveness**: How well the solution worked
-- **Date Added**: When the solution was recorded
+1. **Starting a goal**: Share what habit you want to work on (e.g., "I want to sleep early everyday")
+2. **Conversation**: Engage naturally with the chatbot - it will detect your stage and adapt automatically
+3. **Plans**: When you're ready, the system will help you create specific action plans
+4. **Solutions**: Share what works for you - the system will remember these for future reference
+5. **Multiple goals**: You can work on multiple habits and switch between them
 
-These solutions are stored in a JSON database and can be retrieved later to help with similar issues.
+### Special Features
 
-## Technical Implementation and Operational Logic
+- **Regression support**: If you move backward in stages, the system provides compassionate re-engagement
+- **Motivation tracking**: The system records your expressed motivations to reinforce them later
+- **Solution database**: Successful strategies are stored for reference when facing similar challenges
+
+## Technical Architecture
 
 ### Core Components
 
-1. **Flask Web Application (`app.py`)**
-   - Handles HTTP requests and serves the web interface
-   - Manages conversation history for each user
-   - Coordinates between the frontend, OpenAI API, and solution database
+1. **Stage Classification (`stage_classifier.py`)**
+   - Uses the OpenAI API to analyze user messages and determine their stage of change
+   - Based on the Transtheoretical Model and Motivational Interviewing theory
 
-2. **Solution Database Utilities (`solution_db_utils.py`)**
-   - Manages the JSON-based solution database (CRUD operations)
-   - Contains the GPT-powered solution extraction logic
-   - Provides functions to retrieve solutions by habit or other criteria
+2. **Dynamic Prompting (`prompt_manager.py`)**
+   - Selects the appropriate therapeutic framework based on the user's current stage
+   - Enriches prompts with personalized context from the user's database
 
-3. **Frontend (`templates/index.html`, `static/js/script.js`, `static/css/style.css`)**
-   - Provides the user interface for chat interaction
-   - Handles special commands like `/solutions`
-   - Formats and displays chat messages and solution information
+3. **Data Extraction (`extractors.py`)**
+   - Identifies goals, plans, motivations, and solutions in natural language
+   - Automatically stores these in the user database for future reference
 
-### Operational Flow
+4. **User Database (`data_storage.py`)**
+   - Maintains a JSON-based database of user goals, stages, motivations, plans, and solutions
+   - Enables longitudinal tracking of progress and personalization
 
-1. **User Message Processing**
-   - When a user sends a message, it's received by the Flask server via a POST request to `/api/chat`
-   - The message is added to the user's conversation history
-   - The system attempts to extract a solution from the message using GPT
+5. **Chat Controller (`chat_controller.py`)**
+   - Orchestrates the interaction between components
+   - Handles message processing, stage transitions, and response generation
 
-2. **Solution Extraction Process**
-   - The user's message is sent to the OpenAI API with a specialized system prompt
-   - GPT analyzes the text to determine if it contains a solution
-   - If a solution is identified, it extracts the habit/problem and solution description
-   - The extracted solution is structured as JSON and returned
+### Data Flow
 
-3. **Solution Storage and Retrieval**
-   - Extracted solutions are stored in `solutions_db.json`
-   - Each solution includes an ID, name, habit, description, effectiveness, and date added
-   - Solutions can be retrieved based on the habit/problem they address
-
-4. **Contextual Response Generation**
-   - The system prepares a message for the OpenAI API that includes:
-     - The SFT system prompt defining the therapeutic approach
-     - The user's recent conversation history
-     - Any relevant past solutions from the database
-     - Special instructions if a solution was just shared
-   - The API response is sent back to the user's browser
-
-5. **Special Commands**
-   - When the user types `/solutions`, the frontend intercepts this command
-   - It makes a request to `/api/solutions` to retrieve all stored solutions
-   - The solutions are formatted and displayed in the chat interface
-
-### GPT Integration
-
-1. **Therapeutic Framework**
-   - The SFT system prompt guides GPT to use Solution-Focused Therapy techniques
-   - This includes miracle questions, exception finding, scaling questions, etc.
-
-2. **Solution Identification**
-   - A specialized system prompt helps GPT identify solutions in natural language
-   - The prompt includes examples and criteria for what constitutes a solution
-   - GPT returns structured data that can be directly used by the application
-
-3. **Contextual Awareness**
-   - The system maintains conversation history to provide context for GPT
-   - It also includes relevant past solutions to help GPT make connections
-   - This enables more personalized and therapeutically effective responses
+1. User sends a message
+2. System classifies the user's current stage
+3. System extracts any goals, plans, motivations, or solutions
+4. System updates the user database
+5. System selects the appropriate therapeutic approach and formats the prompt
+6. OpenAI API generates a response based on the stage-specific prompt
+7. Response is simplified if needed (removing excessive questions)
+8. Response is returned to the user
 
 ## Customization
 
-- You can modify the SFT system prompt in `app.py` to change the chatbot's therapeutic approach
-- Edit the CSS in `static/css/style.css` to customize the appearance
-- Change the OpenAI model in `app.py` to use different GPT versions
+You can customize HabitCoach by modifying:
+
+- Stage prompts in `stage_prompts.py` to change the therapeutic approaches
+- Classification criteria in `stage_classifier.py` to adjust stage detection
+- Extraction logic in `extractors.py` to change how the system identifies plans/solutions
+- UI elements in the templates and static folders
 
 ## License
 
 This project is open source and available under the MIT License.
+
+## Acknowledgments
+
+- Based on the Transtheoretical Model by Prochaska and DiClemente
+- Incorporates principles from Motivational Interviewing, Solution-Focused Therapy, Cognitive-Behavioral Therapy, and Acceptance and Commitment Therapy
+- Uses techniques from James Clear's "Atomic Habits" for habit formation strategies
