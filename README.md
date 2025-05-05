@@ -61,13 +61,13 @@ HabitCoach implements the Transtheoretical Model (Stages of Change) to provide t
 Start the Flask server with either:
 
 ```
-python app.py     # Standard version
+python app_test.py  # Final version
 ```
 
 or
 
 ```
-python app_test.py  # Testing version
+python app.py     # SFT version
 ```
 
 Open your browser and navigate to:
@@ -93,23 +93,23 @@ http://localhost:5002
 
 ### Core Components
 
-1. **Stage Classification (`stage_classifier.py`)**
+1. **Stage Classification (`utils/stage_classifier.py`)**
    - Uses the OpenAI API to analyze user messages and determine their stage of change
    - Based on the Transtheoretical Model and Motivational Interviewing theory
 
-2. **Dynamic Prompting (`prompt_manager.py`)**
+2. **Dynamic Prompting (`utils/prompt_manager.py`)**
    - Selects the appropriate therapeutic framework based on the user's current stage
    - Enriches prompts with personalized context from the user's database
 
-3. **Data Extraction (`extractors.py`)**
+3. **Data Extraction (`utils/extractors.py`)**
    - Identifies goals, plans, motivations, and solutions in natural language
    - Automatically stores these in the user database for future reference
 
-4. **User Database (`data_storage.py`)**
+4. **User Database (`utils/data_storage.py`)**
    - Maintains a JSON-based database of user goals, stages, motivations, plans, and solutions
    - Enables longitudinal tracking of progress and personalization
 
-5. **Chat Controller (`chat_controller.py`)**
+5. **Chat Controller (`utils/chat_controller.py`)**
    - Orchestrates the interaction between components
    - Handles message processing, stage transitions, and response generation
 
@@ -128,10 +128,14 @@ http://localhost:5002
 
 You can customize HabitCoach by modifying:
 
-- Stage prompts in `stage_prompts.py` to change the therapeutic approaches
-- Classification criteria in `stage_classifier.py` to adjust stage detection
-- Extraction logic in `extractors.py` to change how the system identifies plans/solutions
+- Stage prompts in `utils/stage_prompts.py` to change the therapeutic approaches
+- Classification criteria in `utils/stage_classifier.py` to adjust stage detection
+- Extraction logic in `utils/extractors.py` to change how the system identifies plans/solutions
 - UI elements in the templates and static folders
+
+## User Database
+
+- User data is stored in utils/user_data.json
 
 ## License
 
