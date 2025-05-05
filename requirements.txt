@@ -1,0 +1,4 @@
+openai==1.76.0
+python-dotenv==1.0.0
+flask==2.3.3
+tinydb==4.7.1

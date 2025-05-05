@@ -1,0 +1,134 @@
+{
+    "user": {
+        "current_goal_id": 1,
+        "goals": [
+            {
+                "id": 1,
+                "name": "sleep early everyday",
+                "stage": "precontemplation",
+                "previous_stage": "precontemplation",
+                "created_at": "2025-05-03 22:27:21",
+                "updated_at": "2025-05-04 19:15:56",
+                "motivations": [
+                    {
+                        "id": 1,
+                        "content": "1. Values: Commitment to personal development and persistence.\n2. Goals: To successfully integrate a behavior or habit into their daily life.\n3. Benefits: Achieving a lasting change that positively impacts their life.\n4. Barriers: Past unsuccessful attempts may be causing doubt or fear of failure.",
+                        "stage": "preparation",
+                        "timestamp": "2025-05-03 22:27:49"
+                    },
+                    {
+                        "id": 2,
+                        "content": "1. Values: Health (importance of sleep)\n2. Goals: To establish an earlier sleep routine\n3. Benefits: Feeling more appealing to go to sleep early, potentially improving sleep quality\n4. Barriers: Lack of a feeling of sleepiness before bedtime",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-03 22:30:21"
+                    },
+                    {
+                        "id": 3,
+                        "content": "1. Values: Confidence and self-improvement.\n2. Goals: Achieving a specific personal goal.\n3. Benefits: Increased confidence from reaching the goal.\n4. Barriers: NONE_EXPLICITLY_MENTIONED.",
+                        "stage": "action",
+                        "timestamp": "2025-05-03 22:56:21"
+                    },
+                    {
+                        "id": 4,
+                        "content": "1. Values: Seeking entertainment or stimulation.\n2. Goals: To alleviate boredom.\n3. Benefits: Enjoyment, distraction from boredom.\n4. Barriers: Lack of alternative engaging activities.",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-03 22:56:56"
+                    },
+                    {
+                        "id": 5,
+                        "content": "1. Values: Fulfillment and personal satisfaction.\n2. Goals: To achieve feelings of fulfillment.\n3. Benefits: Gaining a sense of accomplishment and satisfaction from activities.\n4. Barriers: NO_MOTIVATION.",
+                        "stage": "action",
+                        "timestamp": "2025-05-03 23:33:16"
+                    },
+                    {
+                        "id": 6,
+                        "content": "1. Values: Enjoyment and social connections (having fun with friends).\n2. Goals: Sticking to a plan or commitment for a healthier lifestyle or behavior change.\n3. Benefits: Successfully maintaining the plan for 5 days indicates a desire for achievement and self-control.\n4. Barriers: Friends' social activities interrupting the plan, suggesting a conflict between social life and personal goals.",
+                        "stage": "action",
+                        "timestamp": "2025-05-03 23:43:01"
+                    },
+                    {
+                        "id": 7,
+                        "content": "1. Values: Personal achievement, self-efficacy.\n2. Goals: Overcoming failure, achieving success.\n3. Benefits: Improved self-esteem, frustration relief.\n4. Barriers: Past failures causing frustration.\n\nOverall motivation: A desire to succeed and overcome frustration stemming from repeated failures.",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-04 16:15:20"
+                    },
+                    {
+                        "id": 8,
+                        "content": "1. Values: Health (desire for proper sleep)\n2. Goals: To sleep early\n3. Benefits: Improved well-being from better sleep \n4. Barriers: Difficulty in asserting the intent to change behavior (insisting on it)",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-04 16:34:11"
+                    },
+                    {
+                        "id": 9,
+                        "content": "1. Values: Health \n2. Goals: Establishing a healthier routine \n3. Benefits: Improved health and well-being \n4. Barriers: Disruption from other factors or individuals",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-04 16:35:33"
+                    },
+                    {
+                        "id": 10,
+                        "content": "1. Values: Desire for detachment suggests seeking independence or self-reliance.\n2. Goals: Aiming for personal change and possibly improved emotional state.\n3. Benefits: Hope for greater emotional stability or clarity in relationships.\n4. Barriers: Strong urge to make change indicates internal conflict or struggle with attachment.",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-04 16:36:06"
+                    },
+                    {
+                        "id": 11,
+                        "content": "1. Values: Mental well-being, self-reflection, mindfulness.\n2. Goals: To calm down, engage in self-reflection, reduce screen time.\n3. Benefits: Improved mental clarity, reduced stress.\n4. Barriers: Implicit concern about over-reliance on electronic devices.",
+                        "stage": "maintenance",
+                        "timestamp": "2025-05-04 16:39:34"
+                    },
+                    {
+                        "id": 12,
+                        "content": "1. Values: Personal well-being and mindfulness in practice.\n2. Goals: To maintain consistency in the wind-down practice and improve focus.\n3. Benefits: Emotional regulation and enhanced relaxation through an effective wind-down routine.\n4. Barriers: Frustration with lack of focus and inconsistency in commitment to the practice.",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-04 16:40:13"
+                    },
+                    {
+                        "id": 13,
+                        "content": "1. Values: Health (improving sleep quality).\n2. Goals: Establish a consistent bedtime ritual at 10:30 PM.\n3. Benefits: Better sleep, potentially leading to improved overall health and well-being.\n4. Barriers: Specific obstacles that have previously hindered the ability to sleep early.",
+                        "stage": "preparation",
+                        "timestamp": "2025-05-04 16:46:15"
+                    },
+                    {
+                        "id": 14,
+                        "content": "1. Values: Health (specifically sleep), self-awareness\n2. Goals: To address harmful thought patterns, to improve sleep habits\n3. Benefits: Better sleep quality, improved mental clarity, healthier lifestyle\n4. Barriers: Procrastination, rationalizing behavior (e.g., \"just one more episode\")",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-04 16:50:57"
+                    },
+                    {
+                        "id": 15,
+                        "content": "1. Values: Health (implied by the focus on sleep habits)\n2. Goals: Improve sleep habits\n3. Benefits: Better sleep quality, overall well-being\n4. Barriers: Feeling of regression, potentially lack of progress or frustration",
+                        "stage": "contemplation",
+                        "timestamp": "2025-05-04 19:05:55"
+                    }
+                ],
+                "solutions": [
+                    {
+                        "id": 1,
+                        "name": "staying away from electronic devices",
+                        "description": "It helps me to calm down, reflect on myself, and stay away from electronic devices.",
+                        "effectiveness": "not specified",
+                        "date_added": "2025-05-04 16:39:35"
+                    }
+                ],
+                "plans": [
+                    {
+                        "id": 1,
+                        "action": "Set an alarm for 30 minutes before bedtime",
+                        "timeline": "Every night to start the wind-down routine",
+                        "difficulty": "easy",
+                        "status": "active",
+                        "created_at": "2025-05-03 22:29:14"
+                    },
+                    {
+                        "id": 2,
+                        "action": "Create a calming wind-down ritual",
+                        "timeline": "After the alarm set for 30 minutes before bedtime",
+                        "difficulty": "medium",
+                        "status": "active",
+                        "created_at": "2025-05-04 16:38:55"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "solutions": [
+        {
+            "id": 1,
+            "name": "Solution for exercise",
+            "habit": "exercise",
+            "description": "running or doing exercise every day",
+            "effectiveness": "medium",
+            "date_added": "2025-05-03 18:24:42"
+        }
+    ]
+}
